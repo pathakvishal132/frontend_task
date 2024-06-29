@@ -1,3 +1,5 @@
+import initiateDB from "../db/initDB";
+const db = initiateDB();
 export const getUsers = () => async dispatch => {
   try{
     const response = await fetch('http://example.com/users')
@@ -25,6 +27,29 @@ export const addUser = (payload) => async dispatch => {
       dispatch(getUsers());
     }
   }catch(e){
+    console.log(e);
+  }
+};
+
+export const editUser = (id, updatedUser) => async dispatch => {
+  try {
+    const response = await db.editUser(id, updatedUser);
+    if(response.success) {
+      dispatch(getUsers());
+    }
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+export const deleteUser = (id) => async dispatch => {
+  try {
+    console.log("hi");
+    const response = await db.deleteUser(id);
+    if(response.success) {
+      dispatch(getUsers());
+    }
+  } catch (e) {
     console.log(e);
   }
 };

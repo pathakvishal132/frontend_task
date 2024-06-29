@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.header-box {
+  border: 1px solid #130101;
+  border-radius: 5px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.header-box .ant-form-item {
+  margin-bottom: 10px;
+}
